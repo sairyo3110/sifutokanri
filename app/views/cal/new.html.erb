@@ -1,0 +1,76 @@
+<div class="main posts-new">
+  <div class="container">
+  <h2>シフト記入</h2>
+    <%=form_tag("/posts/create")do%>
+    <div class="form">
+      <div class="form-body">
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+      <div>
+        <input type="date" name="date_day">
+        <select name="content">
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+        </select>
+      </div>
+        <input type="submit" value="送信">
+      </div>
+    </div>
+    <%end%>
+
+    <center>
+     <div class="calender">
+      <p><%= @today.strftime("< %Y / %m のシフト表>") %></p>
+      <table>
+        <tr>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th class="holiday1">土</th>
+          <th class="holiday">日</th>
+        </tr>
+          <% @calendar_data.each do |date| %>
+          
+          <% if date.wday == 0 %>
+        <tr class="day">
+          <% end %>
+          <td align="center" valign="top">
+              <%= date.day%>
+
+              <!-- 投稿内容（時間）の表情 -->
+              <br>
+              <% @posts.each do |post| %>
+              <% if  date == post.date_day%>
+                <div class="posts-index-item">
+                  <div class="post-left">
+                    <img src="<%= "/user_images/#{post.user.image_name}" %>">
+                  </div>
+                  <div class="post-right">
+                    <div class="post-user-name">
+                    <p><%= post.user.name %></p>
+                    </div>
+                    <p><%= link_to(post.content, "/posts/#{post.id}") %></p>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+              </br>
+
+          </td>
+          <% if date.wday == 6 %>
+        </tr>
+        
+          <% end %>
+          <% end %>
+      </table>
+     </div>
+  </center>
+
+  </div>
+</div>

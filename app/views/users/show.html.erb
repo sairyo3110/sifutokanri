@@ -1,0 +1,56 @@
+<body>
+<div class="main user-show">
+  <div class="container">
+
+    <div class="user">
+     <img src="<%= "/user_images/#{@user.image_name}" %>">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+      <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      <% end %>
+    </div>
+
+  <center>
+     <div class="calender">
+      <p><%= @today.strftime("< %Y / %m のシフト表>") %></p>
+      <table>
+        <tr>
+          <th class="th-user">月</th>
+          <th class="th-user">火</th>
+          <th class="th-user">水</th>
+          <th class="th-user">木</th>
+          <th class="th-user">金</th>
+          <th class="th-user-holiday1">土</th>
+          <th class="th-user-holiday1">日</th>
+        </tr>
+          <% @calendar_data.each do |date| %>
+          
+          <% if date.wday == 0 %>
+        <tr class="day">
+          <% end %>
+          <td class="td-user" align="center" valign="top">
+          <!-- <a href="/posts/new"> -->
+
+              <%= link_to(date.day, "/posts/#{date}") %>
+              <!-- 投稿内容（時間）の表情 -->
+              <br class="time" >
+                <% @user.posts.each do |post| %>
+                  <% if  date == post.date_day%>
+                   <%= link_to(post.content, "/posts/#{post.id}/edit") %>
+                  <% end %>
+                <% end %>
+              </br>
+              <!-- </a> -->
+          </td>
+          <% if date.wday == 6 %>
+        </tr>
+        
+          <% end %>
+          <% end %>
+      </table>
+     </div>
+  </center>
+
+</div>
+</body>

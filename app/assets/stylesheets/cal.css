@@ -1,0 +1,65 @@
+.calender-user{
+    padding: 0px 0px 100px 0px;
+    margin: 0 auto;
+}
+
+.table-admin {
+    width: 800px;
+    border-collapse: collapse;
+    border: solid 3px #888;
+}
+
+.th-user {
+    border-collapse: collapse;
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+}
+
+.td-user {
+    height: 110px;
+    width: 110px;
+    border-collapse: collapse;
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+}
+
+.th-user-holiday1 {
+    color :#0000ff;
+    border-collapse: collapse;
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+}
+
+.th-user-holiday {
+    color :#ff0000;
+    border-collapse: collapse;
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+}
+    
+
+/* admin用 */
+.table-admin {
+    width: 60%;
+    border-collapse: collapse;
+    border: solid 3px #888;
+}
+
+.th-admin {
+    width: 110px;
+    border-collapse: collapse;
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+}
+
+.td-admin {
+    width: 110px;
+    border-collapse: collapse;
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+}
+
+tr.day a{
+    color: #000; /* 文字色を黒にする */ 
+    text-decoration: none; /* リンクに出てくる下線を無効にする*/
+}
+
+tr.day a:hover{
+    color: #000; /* 文字色を白にする */
+    background-color: #c9c9c9; /* 背景色をグレー（#c9c9c9）にする */
+    text-decoration: none; /* リンクに出てくる下線を無効にする*/
+}

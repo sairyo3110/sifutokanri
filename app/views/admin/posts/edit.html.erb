@@ -1,0 +1,36 @@
+<div class="main posts-show">
+<div class="container">
+<%=form_tag("/admin/posts/#{@day_format}/create/#{@user}")do%>
+    <div class="form">
+    <div class="form-body">
+      <p>シフト記入</p>
+      
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <div>
+        <select name="content">
+         <option value="11:00">11:00</option>
+         <option value="16:00">16:00</option>
+         <option value="16:30">16:30</option>
+         <option value="17:00">17:00</option>
+         <option value="17:30">17:30</option>
+         <option value="18:00">18:00</option>
+         <option value="18:30">18:30</option>
+         <option value="19:00">19:00</option>
+         <option value="19:30">19:30</option>
+         <option value="X">X</option>
+        </select>
+      </div>
+
+      <input type="submit" value="送信">
+    </div>
+    </div>
+    <%end%>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <!--指定されたコードを貼り付けてください-->
+      <div class="post-user-name">
+        <!-- ユーザーの画像が表示されるように、以下のsrcの中を埋めてください -->
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        
+        <!-- link_toメソッドを用いて、ユーザー詳細ページへのリンクを作成してください -->
+        <%= link_to(@user.name,"/users/#{@user.id}")%>
+      </div>
+
+      <p>
+        <%= @post.date_day.strftime(" %m / %d ") %>
+      </p>
+      <p>
+        <%= @post.content %>
+      </p>
+      
+      <div class="post-menus">
+        <%= link_to("削除", "/admin/posts/#{@post.id}/destroy", {method: "post"}) %>
+      </div>
+      
+      
+        <h1 class="form-heading">編集する</h1>
+        <%= form_tag("/admin/posts/#{@post.id}/update") do %>
+          <div class="form">
+            <div class="form-body">
+              <% @post.errors.full_messages.each do |message| %>
+                <div class="form-error">
+                  <%= message %>
+                </div>
+              <% end %>
+              <select name="content">
+                  <option value="11:00">16:00</option>
+                  <option value="16:00">17:00</option>
+                  <option value="16:30">18:00</option>
+                  <option value="17:00">16:00</option>
+                  <option value="17:30">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="18:30">16:00</option>
+                  <option value="19:00">17:00</option>
+                  <option value="19:30">18:00</option>
+                  <option value="X">"X"</option>
+              </select>
+              <input type="submit" value="保存">
+            </div>
+          </div>
+        <% end %>
+      
+      </div>
+  </div>
+</div>

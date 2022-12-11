@@ -1,0 +1,79 @@
+<div class="main posts-new">
+  <div class="container">
+    <center>
+     <div class="calender">
+      <p><%= @today.strftime("< %Y / %m のシフト表>") %></p>
+      <table class="table-admin">
+
+      <tr>
+
+       <th class="th-admin">
+         日付
+       </th>
+       
+       <th class="th-admin">
+         曜日
+       </th>
+
+       <% @users.each do |user| %>
+       <th class="th-admin">
+        <%= user.name %>
+       </th>
+       <% end %>
+
+       <th class="th-admin">
+         社員
+       </th>
+
+       <th class="th-admin">
+         たりない
+       </th>
+       
+      </tr>
+
+     <% @calendar_data.each do |date| %>
+      <% if  date.month  == @today.month%>
+      <tr class="day">
+       <th class="th-admin" align="center" valign="top">
+        <%= link_to(date.day, "/posts/#{date}") %>
+       </th>
+       <th class="th-admin" align="center" valign="top">
+       <%= %w(日 月 火 水 木 金 土)[date.wday]  %>
+       <% count1 = @admin - Post.where(date_day: date,content: "X").count%>
+       <% count2 = Post.where(date_day: date).count - Post.where(date_day: date,content: "X").count%>
+       <% count = count1 + count2%>
+        <div>
+        <% @users.each do |user| %>
+        <td class="td-admin" align="center" valign="top">
+          <%= link_to( '&nbsp;&nbsp;&nbsp;'.html_safe, "/admin/posts/#{user.id}/edit/#{date}") %>
+          <br>
+           <% @posts.each do |post| %>
+            <% if  date == post.date_day%>
+             <% if  user.id == post.user_id%>
+              <%= link_to(post.content, "/admin/posts/#{post.id}") %>
+             <% end %>
+            <% end %>
+            <% end %>
+          </br>
+        </td>
+        <% end %>
+        </div>
+       </th>
+       <th class="th-admin" align="center" valign="top">
+        <%= count1 %>
+       </th>
+       <th class="th-admin" align="center" valign="top">
+        <% if count<5 %>
+         △
+        <% end %>
+       </th>
+      </tr>
+      <% end %>
+     <% end %>
+      </table>
+     </div>
+  </center>
+  
+  
+  </div>
+</div>

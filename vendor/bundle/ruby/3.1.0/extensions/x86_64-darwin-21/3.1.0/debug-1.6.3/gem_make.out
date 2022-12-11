@@ -1,0 +1,17 @@
+current directory: /Users/ryosaito/Desktop/ruby_lesson/sifuto_app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.3/ext/debug
+/Users/ryosaito/.rbenv/versions/3.1.2/bin/ruby -I /Users/ryosaito/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20221112-34615-54ykfs.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ryosaito/Desktop/ruby_lesson/sifuto_app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.3/ext/debug
+make DESTDIR\= clean
+
+current directory: /Users/ryosaito/Desktop/ruby_lesson/sifuto_app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.3/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/ryosaito/Desktop/ruby_lesson/sifuto_app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.3/ext/debug
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 debug.bundle ./.gem.20221112-34615-qnd7y1/debug
