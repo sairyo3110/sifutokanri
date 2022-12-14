@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
 
-  get "posts/index" => "posts#index"
   get "posts/:date" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/:date/create" => "posts#create" 
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   get "posts/:id/destroy" => "posts#destroy"
   
-  get "/" => "home#top"
+  get "/" => "users#login_form"
   get "about" => "home#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

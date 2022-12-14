@@ -12,11 +12,7 @@
     <header>
       <div class="header-logo">
         <!-- 以下の1行を削除し、指定されたHTMLを貼り付けてください -->
-        <% if @current_user %>
-          <%= link_to("シフトの蔵", "/posts/index") %>
-        <% else %>
-          <%= link_to("シフトの蔵", "/") %>
-        <% end %>
+        シフトの蔵
       </div>
       <ul class="header-menus">
         <% if @current_user %>
@@ -28,16 +24,6 @@
           </li>
           <li>
             <%= link_to("ログアウト", "/logout", {method: "post"}) %>
-          </li>
-        <% else  %>
-          <li>
-            <%= link_to("TweetAppとは", "/about") %>
-          </li>
-          <li>
-            <%= link_to("新規登録", "/signup") %>
-          </li>
-          <li>
-            <%= link_to("ログイン", "/login") %>
           </li>
         <% end %>
       </ul>
