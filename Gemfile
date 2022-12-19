@@ -74,3 +74,6 @@ end
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+# for MariaDB
+gem 'mysql2'
