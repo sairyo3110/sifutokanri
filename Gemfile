@@ -72,7 +72,5 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn', '~> 6.0'
-    # https://rubygems.org/gems/unicorn | RubyGems
-    # 低遅延・高帯域の接続で高速なクライアントにサービスを提供できる UNIX ライクな HTTP サーバ
+  gem 'unicorn', '5.4.1'
 end
